@@ -19,7 +19,7 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 * [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#extensions-on-collections)
 
 ###Collections
-*[Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
+* [Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
 
 
 ## Hello World!
