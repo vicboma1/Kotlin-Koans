@@ -1,5 +1,7 @@
 # Kotlin Koans  / WIP
 
+These are the simple solutions of the kotlin koans. If you want to add your answer, you can make a PR.
+
 ##Indexes
 ###Introduction
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
@@ -18,6 +20,21 @@
 
 
 ## Hello World!
+```
+Simple Functions
+
+Take a look at function syntax and make the function start return the string "OK".
+
+In the tasks the function TODO() is used that throws an exception. 
+Your job during the koans will be to replace this function invocation with 
+a meaningful code according to the problem.
+```
+
+Solution
+```kotlin
+fun start() = "OK"
+```
+
 ## Java to Kotlin conversion
 ## Named arguments
 ## Default arguments
