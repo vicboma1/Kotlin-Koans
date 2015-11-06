@@ -5,18 +5,18 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 ##Indexes
 ###Introduction
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
-* [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#Java-to-Kotlin-conversion)
-* [Named arguments](https://github.com/vicboma1/Kotlin-Koans#Named-arguments)
-* [Default arguments](https://github.com/vicboma1/Kotlin-Koans#Default-arguments)
-* [Lambdas](https://github.com/vicboma1/Kotlin-Koans#Lambdas)
-* [Strings](https://github.com/vicboma1/Kotlin-Koans#Strings)
-* [Data classes](https://github.com/vicboma1/Kotlin-Koans#Data-classes)
-* [Nullable types](https://github.com/vicboma1/Kotlin-Koans#Nullable-types)
-* [Smart casts](https://github.com/vicboma1/Kotlin-Koans#Smart-casts)
-* [Extension functions](https://github.com/vicboma1/Kotlin-Koans#Extension-functions)
-* [Object expressions](https://github.com/vicboma1/Kotlin-Koans#Object-expressions)
-* [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#SAM-conversions)
-* [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#Extensions-on-collections)
+* [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-Kotlin-conversion)
+* [Named arguments](https://github.com/vicboma1/Kotlin-Koans#named-arguments)
+* [Default arguments](https://github.com/vicboma1/Kotlin-Koans#default-arguments)
+* [Lambdas](https://github.com/vicboma1/Kotlin-Koans#lambdas)
+* [Strings](https://github.com/vicboma1/Kotlin-Koans#strings)
+* [Data classes](https://github.com/vicboma1/Kotlin-Koans#data-classes)
+* [Nullable types](https://github.com/vicboma1/Kotlin-Koans#nullable-types)
+* [Smart casts](https://github.com/vicboma1/Kotlin-Koans#smart-casts)
+* [Extension functions](https://github.com/vicboma1/Kotlin-Koans#extension-functions)
+* [Object expressions](https://github.com/vicboma1/Kotlin-Koans#object-expressions)
+* [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#sam-conversions)
+* [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#extensions-on-collections)
 
 
 ## Hello World!
