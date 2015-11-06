@@ -18,6 +18,9 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 * [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#sam-conversions)
 * [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#extensions-on-collections)
 
+###Collections
+*[Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
+
 
 ## Hello World!
 ```
@@ -355,5 +358,23 @@ Solution
 ```Kotlin
 fun getList(): List<Int> {
     return arrayListOf(1, 5, 2).sorted().reversed()
+}
+```
+
+#Collections 
+
+## Introduction
+```
+This part was inspired by GS Collections Kata.
+
+Default collections in Kotlin are Java collections, but there are lots of useful extension functions for them. For example, operations that transform a collection to another one, starting with 'to': toSet or toList.
+
+Implement an extension function Shop.getSetOfCustomers(). The class Shop and all related classes can be found at Shop.kt.
+```
+
+Solution
+```kotlin
+fun Shop.getSetOfCustomers(): Set<Customer> {
+    return this.customers.toSet()
 }
 ```
