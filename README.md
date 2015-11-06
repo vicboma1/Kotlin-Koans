@@ -3,7 +3,7 @@
 These are the simple solutions of the kotlin koans. If you want to add your answer, you can make a PR.
 
 ##Indexes
-###Introduction
+###Introduction [13/42] Koans
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
 * [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-kotlin-conversion)
 * [Named arguments](https://github.com/vicboma1/Kotlin-Koans#named-arguments)
