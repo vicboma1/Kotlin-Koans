@@ -5,7 +5,7 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 ##Indexes
 ###Introduction
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
-* [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-Kotlin-conversion)
+* [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-kotlin-conversion)
 * [Named arguments](https://github.com/vicboma1/Kotlin-Koans#named-arguments)
 * [Default arguments](https://github.com/vicboma1/Kotlin-Koans#default-arguments)
 * [Lambdas](https://github.com/vicboma1/Kotlin-Koans#lambdas)
