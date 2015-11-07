@@ -1,6 +1,7 @@
 # Kotlin Koans  / WIP
 
-These are the simple solutions of the kotlin koans. If you want to add your answer, you can make a PR.
+The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" 
+These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
 ##Indexes
 ###Introduction [13/42] Koans
@@ -11,8 +12,8 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 * [Lambdas](https://github.com/vicboma1/Kotlin-Koans#lambdas)
 * [Strings](https://github.com/vicboma1/Kotlin-Koans#strings)
 * [Data classes](https://github.com/vicboma1/Kotlin-Koans#data-classes)
-* [Nullable types](https://github.com/vicboma1/Kotlin-Koans#nullable-types)
-* [Smart casts](https://github.com/vicboma1/Kotlin-Koans#smart-casts)
+* [Nullable types](https://github.com/vicboma1/Kotlin-Koans#nullable-types)  
+* [Smart casts](https://github.com/vicboma1/Kotlin-Koans#smart-casts)    <--- Nivel 1
 * [Extension functions](https://github.com/vicboma1/Kotlin-Koans#extension-functions)
 * [Object expressions](https://github.com/vicboma1/Kotlin-Koans#object-expressions)
 * [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#sam-conversions)
@@ -20,6 +21,16 @@ These are the simple solutions of the kotlin koans. If you want to add your answ
 
 ###Collections
 * [Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
+* [Filter map](https://github.com/vicboma1/Kotlin-Koans#filter-map)
+* [All, Any, Count, FirstOrNull](https://github.com/vicboma1/Kotlin-Koans#all,any,count,firstornull)  <--- Nivel 2
+* [FlatMap](https://github.com/vicboma1/Kotlin-Koans#flatmap)
+* [Max min](https://github.com/vicboma1/Kotlin-Koans#maxmin)
+* [Sort](https://github.com/vicboma1/Kotlin-Koans#sort)
+* [Sum](https://github.com/vicboma1/Kotlin-Koans#sum)
+* [Partition](https://github.com/vicboma1/Kotlin-Koans#partition)
+* [Fold](https://github.com/vicboma1/Kotlin-Koans#fold)
+* [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks)
+* [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
 
 ## Hello World!
@@ -377,4 +388,114 @@ Solution
 fun Shop.getSetOfCustomers(): Set<Customer> {
     return this.customers.toSet()
 }
+```
+
+## Filter Map
+```
+Implement extension functions Shop.getCitiesCustomersAreFrom() and Shop.getCustomersFrom() using functions map and filter.
+
+val numbers = listOf(1, -1, 2)
+numbers.filter { it > 0 } == listOf(1, 2)
+numbers.map { it * it } == listOf(1, 1, 4)
+```
+
+Solution
+```kotlin
+fun Shop.getCitiesCustomersAreFrom(): Set<City> =  customers.map({it.city}).toSet()
+fun Shop.getCustomersFrom(city: City): List<Customer> = customers.filter({it.city === city}).toList()
+```
+
+## All, Any, Count, FirstOrNull
+```
+Implement all the functions below using all, any, count, firstOrNull.
+
+val numbers = listOf(-1, 0, 2)
+val isZero: (Int) -> Boolean = { it == 0 }
+numbers.any(isZero) == true
+numbers.all(isZero) == false
+numbers.count(isZero) == 1
+numbers.firstOrNull { it > 0 } == 2
+```
+
+Solution
+```kotlin
+fun Shop.checkAllCustomersAreFrom(city: City): Boolean = customers.all(givenCity(city))
+fun Shop.hasCustomerFrom(city: City): Boolean = customers.any(givenCity(city))
+fun Shop.countCustomersFrom(city: City): Int = customers.count(givenCity(city))
+fun Shop.findAnyCustomerFrom(city: City): Customer? = customers.firstOrNull(givenCity(city))
+
+private fun givenCity(city: City): (Customer) -> Boolean = { it.city === city }
+```
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
+```
+
+## 
+```
+
+```
+
+Solution
+```kotlin
+
 ```
