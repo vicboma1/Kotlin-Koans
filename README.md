@@ -1,6 +1,6 @@
 # Kotlin Koans  / WIP
 
-The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" 
+The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP)
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
 ##Indexes
@@ -427,56 +427,78 @@ fun Shop.findAnyCustomerFrom(city: City): Customer? = customers.firstOrNull(give
 private fun givenCity(city: City): (Customer) -> Boolean = { it.city === city }
 ```
 
-## 
+## FlatMap
 ```
+Implement Customer.getOrderedProducts() and Shop.getAllOrderedProducts() using flatMap.
 
-```
-
-Solution
-```kotlin
-
-```
-
-## 
-```
-
+val result = listOf("abc", "12").flatMap { it.toCharList() }
+result == listOf('a', 'b', 'c', '1', '2')
 ```
 
 Solution
 ```kotlin
-
+fun Customer.getOrderedProducts(): Set<Product> = orders.flatMap({it.products}).toSet()
+fun Shop.getAllOrderedProducts(): Set<Product> = customers.flatMap({it.getOrderedProducts()}).toSet()
 ```
 
-## 
+## Max min
 ```
+Implement Shop.getCustomerWithMaximumNumberOfOrders() and Customer.getMostExpensiveOrderedProduct() using max, min, maxBy, or minBy.
 
-```
-
-Solution
-```kotlin
-
-```
-
-
-## 
-```
-
+listOf(1, 42, 4).max() == 42
+listOf("a", "ab").minBy { it.length() } == "a"
 ```
 
 Solution
 ```kotlin
-
+fun Shop.getCustomerWithMaximumNumberOfOrders(): Customer? = customers.maxBy({it.orders.count()})
+fun Customer.getMostExpensiveOrderedProduct(): Product? = orders.flatMap({it.products}).maxBy({it.price})
 ```
 
-
-## 
+## Sort
 ```
+Implement Shop.getCustomersSortedByNumberOfOrders() using sort or sortBy.
 
+listOf("bbb", "a", "cc").sorted() == listOf("a", "bbb", "cc")
+listOf("bbb", "a", "cc").sortedBy { it.length() } == listOf("a", "cc", "bbb")
 ```
 
 Solution
 ```kotlin
+fun Shop.getCustomersSortedByNumberOfOrders(): List<Customer> = customers.sortedBy({it.orders.size()})
+```
 
+
+## Sum
+```
+Implement Customer.getTotalOrderPrice() using sum or sumBy.
+
+listOf(1, 5, 3).sum() == 9
+listOf("a", "b", "cc").sumBy { it.length() } == 4
+```
+
+Solution
+```kotlin
+fun Customer.getTotalOrderPrice(): Double = orders.flatMap({it.products}).sumByDouble({it.price})
+```
+
+
+## Partition
+```
+Implement Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered() using partition.
+
+val numbers = listOf(1, 3, -4, 2, -11)
+val (positive, negative) = numbers.partition { it > 0 }
+positive == listOf(1, 3, 2)
+negative == listOf(-4, -11)
+```
+
+Solution
+```kotlin
+fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> =  customers.filter {
+    val (del, und) = it.orders.partition { it.isDelivered }
+    und.size > del.size
+}.toSet()
 ```
 
 
