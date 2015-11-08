@@ -1,9 +1,15 @@
 # Kotlin Koans  / WIP
 
-The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP)
+##Build
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.0.0--beta--1038-blue.svg?plastic)](http://kotlinlang.org) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/) [![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
+/kotlin-koans/readme)](https://github.com/igrigorik/ga-beacon)
+
+The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP).
+
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
-##Indexes
+##Indexes for exercises online
+
 ###Introduction [13/42] Koans
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
 * [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-kotlin-conversion)
