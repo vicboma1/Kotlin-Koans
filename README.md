@@ -1,7 +1,8 @@
 # Kotlin Koans  / WIP
 
 ##Build
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.0.0--beta--1038-blue.svg?plastic)](http://kotlinlang.org) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/) [![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.0.0--beta--1038-blue.svg?plastic)](http://kotlinlang.org) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/) [![Junit](https://img.shields.io/badge/Junit-4.10-orange.svg?plastic)](http://junit.org) [![Guava](https://img.shields.io/badge/Guava-16.0.1-orange.svg?plastic)](https://code.google.com/p/guava-libraries/)
+[![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
 /kotlin-koans/readme)](https://github.com/igrigorik/ga-beacon)
 
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP).
