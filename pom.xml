@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>koans</groupId>
+    <artifactId>Kotlin-Koans</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <java.version>1.8</java.version>
+            <kotlin.version>1.0.0-beta-1038</kotlin.version>
+            <maven.cobertura.version>2.7</maven.cobertura.version>
+            <maven.version>4.0.0</maven.version>
+            <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+            <timestamp>${maven.build.timestamp}</timestamp>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <jdk.version>1.8</jdk.version>
+        </properties>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.10</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>16.0.1</version>
+            </dependency>
+
+        </dependencies>
+
+        <build>
+            <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+            <plugins>
+                <plugin>
+                    <artifactId>kotlin-maven-plugin</artifactId>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <version>${kotlin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>compile</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>test-compile</id>
+                            <phase>test-compile</phase>
+                            <goals>
+                                <goal>test-compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.8</source>   <!-- use java 8 -->
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.eluder.coveralls</groupId>
+                    <artifactId>coveralls-maven-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <repoToken></repoToken>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.7</version>
+                    <configuration>
+                        <format>xml</format>
+                        <aggregate>true</aggregate>
+                        <check>
+                            <branchRate>80</branchRate>
+                            <lineRate>80</lineRate>
+                            <haltOnFailure>true</haltOnFailure>
+                            <totalBranchRate>80</totalBranchRate>
+                            <totalLineRate>80</totalLineRate>
+                            <packageLineRate>80</packageLineRate>
+                            <packageBranchRate>80</packageBranchRate>
+                        </check>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+
+    </project>
