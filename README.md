@@ -19,7 +19,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#sam-conversions)
 * [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#extensions-on-collections)
 
-###Collections
+###Collections [25/42] Koans
 * [Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
 * [Filter map](https://github.com/vicboma1/Kotlin-Koans#filter-map)
 * [All, Any, Count, FirstOrNull](https://github.com/vicboma1/Kotlin-Koans#all,any,count,firstornull)  <--- Nivel 2
@@ -29,7 +29,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Sum](https://github.com/vicboma1/Kotlin-Koans#sum)
 * [Partition](https://github.com/vicboma1/Kotlin-Koans#partition)
 * [Fold](https://github.com/vicboma1/Kotlin-Koans#fold)
-* [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks)
+* [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
 * [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
 
@@ -502,22 +502,85 @@ fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> =  
 ```
 
 
-## 
+## Fold
 ```
+Implement Shop.getProductsOrderedByAllCustomers() using fold.
 
-```
-
-Solution
-```kotlin
-
-```
-
-## 
-```
-
+listOf(1, 2, 3, 4).fold(1, {
+    partProduct, element ->
+    element * partProduct
+}) == 24
 ```
 
 Solution
 ```kotlin
+fun Shop.getProductsOrderedByAllCustomers(): Set<Product> {
+    return customers.fold(allOrderedProducts, {
+        orderedByAll, customer ->
+        val orderedProducts = customer.orders.flatMap { it.products }.toSet()
+        orderedByAll.intersect(orderedProducts) // [X] intersect [X;C;V] = [X] == retainAll
+    })
+}
 
+val Customer.orderedProducts: Set<Product> get() {
+    return orders.flatMap({it.products}).toSet()
+}
+
+val Shop.allOrderedProducts: Set<Product> get() {
+    return customers.flatMap({it.orderedProducts}).toSet()
+}
+```
+
+## Compound tasks
+```
+Implement Customer.getMostExpensiveDeliveredProduct() and Shop.getNumberOfTimesProductWasOrdered() using functions from the Kotlin standard library.
+```
+
+Solution
+```kotlin
+fun Customer.getMostExpensiveDeliveredProduct(): Product? = orders.filter({it.isDelivered}).flatMap({it.products}).maxBy({it.price})
+
+fun Shop.getNumberOfTimesProductWasOrdered(product: Product): Int = customers.flatMap({it.orders.flatMap { it.products }}).count({it == product})
+```
+
+## Get used to new style
+```
+Rewrite the following Java function to Kotlin.
+
+public Collection<String> doSomethingStrangeWithCollection(
+        Collection<String> collection
+) {
+    Map<Integer, List<String>> groupsByLength = Maps.newHashMap();
+    for (String s : collection) {
+        List<String> strings = groupsByLength.get(s.length());
+        if (strings == null) {
+            strings = Lists.newArrayList();
+            groupsByLength.put(s.length(), strings);
+        }
+        strings.add(s);
+    }
+
+    int maximumSizeOfGroup = 0;
+    for (List<String> group : groupsByLength.values()) {
+        if (group.size() > maximumSizeOfGroup) {
+            maximumSizeOfGroup = group.size();
+        }
+    }
+
+    for (List<String> group : groupsByLength.values()) {
+        if (group.size() == maximumSizeOfGroup) {
+            return group;
+        }
+    }
+    return null;
+}
+```
+
+Solution
+```kotlin
+fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection<String>? {
+    val groupsByLength = collection.groupBy{ s -> s?.filter({ it != null}).length }
+    val maximumSizeOfGroup = groupsByLength.values.map { group -> group.size() }.max()
+    return groupsByLength.values.firstOrNull { group -> group.size == maximumSizeOfGroup }
+}
 ```
