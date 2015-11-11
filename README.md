@@ -34,6 +34,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Max min](https://github.com/vicboma1/Kotlin-Koans#maxmin)
 * [Sort](https://github.com/vicboma1/Kotlin-Koans#sort)
 * [Sum](https://github.com/vicboma1/Kotlin-Koans#sum)
+* [Group by](https://github.com/vicboma1/Kotlin-Koans#group-by)
 * [Partition](https://github.com/vicboma1/Kotlin-Koans#partition)
 * [Fold](https://github.com/vicboma1/Kotlin-Koans#fold)
 * [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
@@ -497,6 +498,22 @@ listOf("a", "b", "cc").sumBy { it.length() } == 4
 Solution
 ```kotlin
 fun Customer.getTotalOrderPrice(): Double = orders.flatMap({it.products}).sumByDouble({it.price})
+```
+
+## Group by
+```
+Implement Shop.groupCustomersByCity() using groupBy.
+
+val result = listOf("a", "b", "ba", "ccc", "ad").groupBy { it.length() }
+result == mapOf(1 to listOf("a", "b"), 2 to listOf("ba", "ad"), 3 to listOf("ccc"))
+```
+
+Solution
+```kotlin
+fun Shop.groupCustomersByCity(): Map<City, List<Customer>> {
+    val grupo = customers.groupBy({it.city})
+    return grupo;
+} 
 ```
 
 
