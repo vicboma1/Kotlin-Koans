@@ -39,7 +39,17 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
 * [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
+###Conventions [X/42] Koans
+* [Comparison](https://github.com/vicboma1/Kotlin-Koans#comparison)
+* [In range](https://github.com/vicboma1/Kotlin-Koans#in-range)
+* [Range to](https://github.com/vicboma1/Kotlin-Koans#range-to)
+* [For loop](https://github.com/vicboma1/Kotlin-Koans#for-loop)
+* [Operators overloading](https://github.com/vicboma1/Kotlin-Koans#operators-overloading)
+* [Multi assignment](https://github.com/vicboma1/Kotlin-Koans#multi-assignment)
+* [Invoke](https://github.com/vicboma1/Kotlin-Koans#invoke)
 
+
+# Introduction
 ## Hello World!
 ```
 Simple Functions
@@ -590,4 +600,69 @@ fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection
     val maximumSizeOfGroup = groupsByLength.values.map { group -> group.size() }.max()
     return groupsByLength.values.firstOrNull { group -> group.size == maximumSizeOfGroup }
 }
+```
+
+# Conventions 
+
+## Comparison
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## In range
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## Range to
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## For loop
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## Operators overloading
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## Multi assignment
+```
+```
+
+Solution
+```kotlin
+
+```
+
+## Invoke
+```
+```
+
+Solution
+```kotlin
+
 ```
