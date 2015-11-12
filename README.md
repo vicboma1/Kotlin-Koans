@@ -40,7 +40,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
 * [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
-###Conventions [X/42] Koans
+###Conventions [32/42] Koans
 * [Comparison](https://github.com/vicboma1/Kotlin-Koans#comparison)
 * [In range](https://github.com/vicboma1/Kotlin-Koans#in-range)
 * [Range to](https://github.com/vicboma1/Kotlin-Koans#range-to)
@@ -51,6 +51,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 
 
 # Introduction
+
 ## Hello World!
 ```
 Simple Functions
@@ -623,29 +624,67 @@ fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection
 
 ## Comparison
 ```
+Read about operator overloading to learn how different conventions for 
+operations like ==, <, + work in Kotlin. Add the function compareTo to the 
+class MyDate to make it comparable. After that the code below date1 < date2 will 
+start to compile.
+
+In Kotlin when you override a member, the modifier override is mandatory.
 ```
 
 Solution
 ```kotlin
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
+    override fun compareTo(other: MyDate ): Int{
+        if (this.year != other.year) return (this.year - other.year)
+        if (this.month != other.month) return (this.month - other.month)
+        return (this.dayOfMonth - other.dayOfMonth)
+    }
+}
 
+fun compare(date1: MyDate, date2: MyDate) = date1 < date2
 ```
 
 ## In range
 ```
+In Kotlin in checks are translated to the corresponding contains calls:
+
+val list = listOf("a", "b")
+"a" in list  // list.contains("a")
+"a" !in list // !list.contains("a")
+Read about ranges. Make the class DateRange implement the standard Range interface 
+to allow in checks with a range of dates.
 ```
 
 Solution
 ```kotlin
+Range(override val start: MyDate, override val end: MyDate) : Range<MyDate> {
+    override fun contains(item: MyDate): Boolean = ( (start <= item) && (item <= end) )
+}
 
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in DateRange(first, last)
+}
 ```
 
 ## Range to
 ```
+Implement the function MyDate.rangeTo(). 
+This allows you to create a range of dates using the following syntax:
+MyDate(2015, 5, 11)..MyDate(2015, 5, 12)
 ```
 
 Solution
 ```kotlin
+operator fun MyDate.rangeTo(other: MyDate) = DateRange(this,other)
 
+class DateRange(override val start: MyDate, override val end: MyDate): Range<MyDate> {
+    override fun contains(item: MyDate): Boolean = start < item && item < end
+}
+
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in first..last
+}
 ```
 
 ## For loop
