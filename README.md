@@ -1,9 +1,16 @@
 # Kotlin Koans  / WIP
 
-The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP)
+##Build
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.0.0--beta--1038-blue.svg?plastic)](http://kotlinlang.org) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/) [![Junit](https://img.shields.io/badge/Junit-4.10-orange.svg?plastic)](http://junit.org) [![Guava](https://img.shields.io/badge/Guava-16.0.1-orange.svg?plastic)](https://code.google.com/p/guava-libraries/)
+[![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
+/kotlin-koans/readme)](https://github.com/igrigorik/ga-beacon)
+
+The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP).
+
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
-##Indexes
+##Indexes for exercises online
+
 ###Introduction [13/42] Koans
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
 * [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-kotlin-conversion)
@@ -27,11 +34,39 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Max min](https://github.com/vicboma1/Kotlin-Koans#maxmin)
 * [Sort](https://github.com/vicboma1/Kotlin-Koans#sort)
 * [Sum](https://github.com/vicboma1/Kotlin-Koans#sum)
+* [Group by](https://github.com/vicboma1/Kotlin-Koans#group-by)
 * [Partition](https://github.com/vicboma1/Kotlin-Koans#partition)
 * [Fold](https://github.com/vicboma1/Kotlin-Koans#fold)
 * [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
 * [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
+###Conventions [32/42] Koans
+* [Comparison](https://github.com/vicboma1/Kotlin-Koans#comparison)
+* [In range](https://github.com/vicboma1/Kotlin-Koans#in-range)
+* [Range to](https://github.com/vicboma1/Kotlin-Koans#range-to)
+* [For loop](https://github.com/vicboma1/Kotlin-Koans#for-loop)
+* [Operators overloading](https://github.com/vicboma1/Kotlin-Koans#operators-overloading)
+* [Multi assignment](https://github.com/vicboma1/Kotlin-Koans#multi-assignment)
+* [Invoke](https://github.com/vicboma1/Kotlin-Koans#invoke) <--- Nivel 4
+
+###Properties [36/42] Koans
+* [Properties](https://github.com/vicboma1/Kotlin-Koans#properties)
+* [Lazy property](https://github.com/vicboma1/Kotlin-Koans#lazy-property)
+* [Delegates examples](https://github.com/vicboma1/Kotlin-Koans#delgates-examples)
+* [Delegates how it works](https://github.com/vicboma1/Kotlin-Koans#delegates-how-it-works)
+
+###Builders [41/42] Koans
+* [Extension function literals](https://github.com/vicboma1/Kotlin-Koans#extension-function-literals)
+* [String and map builders](https://github.com/vicboma1/Kotlin-Koans#string-and-map-builders)
+* [The function with](https://github.com/vicboma1/Kotlin-Koans#the-function-with)
+* [Html builders](https://github.com/vicboma1/Kotlin-Koans#html-builders)
+* [Builders how it works](https://github.com/vicboma1/Kotlin-Koans#builders-how-it-works)
+
+### Generic [42/42] Koans
+* [Generic functions](https://github.com/vicboma1/Kotlin-Koans#generic-functions)
+
+
+# Introduction
 
 ## Hello World!
 ```
@@ -482,6 +517,22 @@ Solution
 fun Customer.getTotalOrderPrice(): Double = orders.flatMap({it.products}).sumByDouble({it.price})
 ```
 
+## Group by
+```
+Implement Shop.groupCustomersByCity() using groupBy.
+
+val result = listOf("a", "b", "ba", "ccc", "ad").groupBy { it.length() }
+result == mapOf(1 to listOf("a", "b"), 2 to listOf("ba", "ad"), 3 to listOf("ccc"))
+```
+
+Solution
+```kotlin
+fun Shop.groupCustomersByCity(): Map<City, List<Customer>> {
+    val grupo = customers.groupBy({it.city})
+    return grupo;
+} 
+```
+
 
 ## Partition
 ```
@@ -582,5 +633,369 @@ fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection
     val groupsByLength = collection.groupBy{ s -> s?.filter({ it != null}).length }
     val maximumSizeOfGroup = groupsByLength.values.map { group -> group.size() }.max()
     return groupsByLength.values.firstOrNull { group -> group.size == maximumSizeOfGroup }
+}
+```
+
+# Conventions 
+
+## Comparison
+```
+Read about operator overloading to learn how different conventions for 
+operations like ==, <, + work in Kotlin. Add the function compareTo to the 
+class MyDate to make it comparable. After that the code below date1 < date2 will 
+start to compile.
+
+In Kotlin when you override a member, the modifier override is mandatory.
+```
+
+Solution
+```kotlin
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
+    override fun compareTo(other: MyDate ): Int{
+        if (this.year != other.year) return (this.year - other.year)
+        if (this.month != other.month) return (this.month - other.month)
+        return (this.dayOfMonth - other.dayOfMonth)
+    }
+}
+
+fun compare(date1: MyDate, date2: MyDate) = date1 < date2
+```
+
+## In range
+```
+In Kotlin in checks are translated to the corresponding contains calls:
+
+val list = listOf("a", "b")
+"a" in list  // list.contains("a")
+"a" !in list // !list.contains("a")
+Read about ranges. Make the class DateRange implement the standard Range interface 
+to allow in checks with a range of dates.
+```
+
+Solution
+```kotlin
+Range(override val start: MyDate, override val end: MyDate) : Range<MyDate> {
+    override fun contains(item: MyDate): Boolean = ( (start <= item) && (item <= end) )
+}
+
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in DateRange(first, last)
+}
+```
+
+## Range to
+```
+Implement the function MyDate.rangeTo(). 
+This allows you to create a range of dates using the following syntax:
+MyDate(2015, 5, 11)..MyDate(2015, 5, 12)
+```
+
+Solution
+```kotlin
+operator fun MyDate.rangeTo(other: MyDate) = DateRange(this,other)
+
+class DateRange(override val start: MyDate, override val end: MyDate): Range<MyDate> {
+    override fun contains(item: MyDate): Boolean = start < item && item < end
+}
+
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in first..last
+}
+```
+
+## For loop
+```
+Kotlin for loop iterates through anything that provides an iterator. 
+Make the class DateRange implement Iterable<MyDate>, so that it could be iterated over. 
+You can use the function MyDate.nextDay() defined in DateUtil.kt
+
+```
+
+Solution
+```kotlin
+import java.util.NoSuchElementException;
+
+class DateRange(val start: MyDate, val end: MyDate) : Iterable<MyDate>{
+    override fun iterator(): Iterator<MyDate>  = object : Iterator<MyDate> {
+        var current: MyDate = start
+
+        override fun next(): MyDate {
+            if (!hasNext()) {
+                throw NoSuchElementException()
+            }
+
+            val result = current
+            current = current.nextDay()
+            return result
+        }
+
+        override fun hasNext(): Boolean {
+            return current.dayOfMonth <= end.dayOfMonth
+        }
+
+    }
+}
+
+fun iterateOverDateRange(firstDate: MyDate, secondDate: MyDate, handler: (MyDate) -> Unit) {
+    for (date in DateRange(firstDate,secondDate)) {
+        handler(date)
+    }
+}
+
+```
+
+## Operators overloading
+```
+Implement a kind of date arithmetic. Support adding years, weeks and days to a date. You could be able to write the code like this: date + YEAR * 2 + WEEK * 3 + DAY * 15.
+
+At first, add an extension function 'plus()' to MyDate, taking a TimeInterval as an argument. Use an utility function MyDate.addTimeIntervals() declared in DateUtil.kt
+
+Then, try to support adding several time intervals to a date. You may need an extra class.
+```
+
+Solution
+```kotlin
+
+import TimeInterval.*
+
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) 
+
+enum class TimeInterval { DAY, WEEK, YEAR }
+
+operator fun MyDate.plus(timeInterval: TimeInterval): MyDate = addTimeIntervals(timeInterval, 1)
+
+fun task1(today: MyDate): MyDate = addTimeIntervals(today,1,1)
+
+fun task2(today: MyDate): MyDate  = addTimeIntervals(today,2,3,5)
+
+fun addTimeIntervals(myDate: MyDate, year:Int = 0, week: Int = 0, day:Int = 0) : MyDate {
+    return myDate
+            .addTimeIntervals(TimeInterval.YEAR,year)
+            .addTimeIntervals(TimeInterval.WEEK,week)
+            .addTimeIntervals(TimeInterval.DAY,day)
+}
+
+```
+
+## Multi assignment
+```
+Read about multi-declarations and make the following code compile by adding one word.
+```
+
+Solution
+```kotlin
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int)
+
+fun isLeapDay(date: MyDate): Boolean {
+    val (year, month, dayOfMonth) = date
+    return year % 4 == 0 && month == 2 && dayOfMonth == 29
+}
+
+```
+
+## Invoke
+```
+Objects with invoke() method can be invoked as a function.
+
+You can add invoke extension for any class, but it's better not to overuse it:
+
+fun Int.invoke() { println(this) }
+
+1() //huh?..
+Implement the function Invokable.invoke() so it would count a number of invocations.
+```
+
+Solution
+```kotlin
+class Invokable {
+    public var numberOfInvocations: Int = 0
+        private set
+    operator public fun invoke(): Invokable {
+        numberOfInvocations++
+            return this
+    }
+}
+
+fun invokeTwice(invokable: Invokable) = invokable()()
+```
+
+#Properties
+
+## Properties
+```
+Read about properties in Kotlin.
+
+Add a custom setter to PropertyExample.propertyWithCounter so that the
+counter property is incremented every time propertyWithCounter is assigned to.
+```
+
+Solution
+```kotlin
+
+/** 
+ * var <propertyName>: <PropertyType> [= <property_initializer>]
+ * <getter>
+ * <setter>
+ */
+
+class PropertyExample() {
+    var counter = 0
+    var propertyWithCounter: Int? = null
+        set(arg:Int?){
+        field = arg
+            counter++
+    }
+}
+
+
+```
+
+## Lazy property
+```
+Add a custom getter to make the 'lazy' val really lazy. 
+It should be initialized by the invocation of 'initializer()' at 
+the moment of the first access.
+
+You can add as many additional properties as you need.
+
+Do not use delegated properties!
+```
+
+Solution
+```kotlin
+class LazyProperty(val initializer: () -> Int) {
+    private val lazyValue : Int? = null
+         get() {
+            if(field == null)
+               field = initializer()
+                
+         return field
+        }
+    
+    val lazy: Int get() = lazyValue!!
+       
+}
+```
+
+## Delegates examples
+```
+Read about delegated properties and make the property lazy by using delegates.
+```
+
+Solution
+```kotlin
+class LazyProperty(val initializer: () -> Int) {
+    val lazyValue: Int by Lazy(initializer)
+}
+```
+
+## Delegates how it works
+```
+Implement the methods of the class 'EffectiveDate' so it can be delegated to. 
+Store only the time in milliseconds in 'timeInMillis' property.
+
+Use the extension functions MyDate.toMillis() and Long.toDate(), defined at MyDate.kt
+```
+
+Solution
+```kotlin
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
+class D {
+    var date: MyDate by EffectiveDate()
+}
+
+class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
+
+    var timeInMillis: Long? = null
+
+    override fun getValue(thisRef: R, property: KProperty<*>): MyDate {
+        return timeInMillis!!.toDate()
+    }
+
+    override fun setValue(thisRef: R, property: KProperty<*>, value: MyDate) {
+        timeInMillis = value.toMillis()
+    }
+}
+```
+
+#Builders
+
+## Extension function literals
+```
+```
+
+Solution
+```kotlin
+```
+
+## String and map builders
+```
+```
+
+Solution
+```kotlin
+```
+
+## The function with
+```
+```
+
+Solution
+```kotlin
+```
+
+## Html builders
+```
+```
+
+Solution
+```kotlin
+```
+
+## Builders how it works
+```
+```
+
+Solution
+```kotlin
+```
+
+# Generic
+
+## Generic functions
+```
+Make the following code compile by implementing a partitionTo function that splits a collection into two collections according to a predicate.
+
+There is a partition() function in the standard library that always returns two newly created lists. You should write a function that splits the collection into two collections given as arguments. The signature of the toCollection() function from the standard library may help you.
+```
+
+Solution
+```kotlin
+import java.util.*
+
+    
+fun <T,H: MutableCollection<T>> Collection<T>.partitionTo(listHead : H, listBody: H, predicate : (T) -> Boolean ) : Pair<H,H> {
+    this.forEach{      
+        val isPredicate = predicate.invoke(it)
+            if(isPredicate) listHead.add(it)
+            else listBody.add(it)
+    }
+     return Pair(listHead,listBody)
+}
+
+fun partitionWordsAndLines() {
+    val (words, lines) = listOf("a", "a b", "c", "d e").
+            partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
+    words == listOf("a", "c")
+    lines == listOf("a b", "d e")
+}
+
+fun partitionLettersAndOtherSymbols() {
+    val (letters, other) = setOf('a', '%', 'r', '}').
+            partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+    letters == setOf('a', 'r')
+    other == setOf('%', '}')
 }
 ```
