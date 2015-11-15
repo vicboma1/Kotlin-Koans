@@ -49,6 +49,11 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Multi assignment](https://github.com/vicboma1/Kotlin-Koans#multi-assignment)
 * [Invoke](https://github.com/vicboma1/Kotlin-Koans#invoke) <--- Nivel 4
 
+###Properties [36/42] Koans
+* [Properties](https://github.com/vicboma1/Kotlin-Koans#properties)
+* [Lazy property](https://github.com/vicboma1/Kotlin-Koans#lazy-property)
+* [Delegates examples](https://github.com/vicboma1/Kotlin-Koans#delgates-examples)
+* [Delegates how it works](https://github.com/vicboma1/Kotlin-Koans#delegates-how-it-works)
 
 # Introduction
 
@@ -801,4 +806,103 @@ class Invokable {
 }
 
 fun invokeTwice(invokable: Invokable) = invokable()()
+```
+
+## Properties
+```
+Read about properties in Kotlin.
+
+Add a custom setter to PropertyExample.propertyWithCounter so that the
+counter property is incremented every time propertyWithCounter is assigned to.
+```
+
+Solution
+```kotlin
+
+/** 
+ * var <propertyName>: <PropertyType> [= <property_initializer>]
+ * <getter>
+ * <setter>
+ */
+
+class PropertyExample() {
+    var counter = 0
+    var propertyWithCounter: Int? = null
+        set(arg:Int?){
+        field = arg
+            counter++
+    }
+}
+
+
+```
+
+## Lazy property
+```
+Add a custom getter to make the 'lazy' val really lazy. 
+It should be initialized by the invocation of 'initializer()' at 
+the moment of the first access.
+
+You can add as many additional properties as you need.
+
+Do not use delegated properties!
+```
+
+Solution
+```kotlin
+class LazyProperty(val initializer: () -> Int) {
+    private val lazyValue : Int? = null
+         get() {
+            if(field == null)
+               field = initializer()
+                
+         return field
+        }
+    
+    val lazy: Int get() = lazyValue!!
+       
+}
+```
+
+## Delegates examples
+```
+Read about delegated properties and make the property lazy by using delegates.
+```
+
+Solution
+```kotlin
+class LazyProperty(val initializer: () -> Int) {
+    val lazyValue: Int by Lazy(initializer)
+}
+```
+
+## Delegates how it works
+```
+Implement the methods of the class 'EffectiveDate' so it can be delegated to. 
+Store only the time in milliseconds in 'timeInMillis' property.
+
+Use the extension functions MyDate.toMillis() and Long.toDate(), defined at MyDate.kt
+```
+
+Solution
+```kotlin
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
+class D {
+    var date: MyDate by EffectiveDate()
+}
+
+class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
+
+    var timeInMillis: Long? = null
+
+    override fun getValue(thisRef: R, property: KProperty<*>): MyDate {
+        return timeInMillis!!.toDate()
+    }
+
+    override fun setValue(thisRef: R, property: KProperty<*>, value: MyDate) {
+        timeInMillis = value.toMillis()
+    }
+}
 ```
