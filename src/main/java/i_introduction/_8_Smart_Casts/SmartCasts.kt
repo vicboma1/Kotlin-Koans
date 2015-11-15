@@ -20,5 +20,5 @@ fun todoTask6(expr: Expr): Nothing = TODO(
         Rewrite 'JavaCode6.eval()' in Kotlin using smart casts and 'when' expression.
     """,
     documentation = doc6(),
-    references = { JavaCode6().eval(expr) })
+    references = { i_introduction._8_Smart_Casts.eval(expr) })
 

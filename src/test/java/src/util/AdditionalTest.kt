@@ -8,6 +8,7 @@ import i_introduction._8_Smart_Casts._06_Smart_Casts
 import ii_collections._24_Extensions_On_Collections
 import junit.framework.Assert
 import org.junit.Test
+import java.util.*
 
 class AdditionalTest {
     @Test fun test() {

@@ -2,7 +2,8 @@ package i_introduction._7_Nullable_Types;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import util.JavaCode;
+
+import java.util.JavaCode;
 
 public class JavaCode5 extends JavaCode {
     public void sendMessageToClient(@Nullable Client client, @Nullable String message, @NotNull Mailer mailer) {

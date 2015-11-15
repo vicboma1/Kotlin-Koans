@@ -1,6 +1,10 @@
-package i_introduction._8_Smart_Casts;
+package java.i_introduction._8_Smart_Casts;
 
-import util.JavaCode;
+import i_introduction._8_Smart_Casts.Expr;
+import i_introduction._8_Smart_Casts.Num;
+import i_introduction._8_Smart_Casts.Sum;
+
+import java.util.JavaCode;
 
 public class JavaCode6 extends JavaCode {
     public int eval(Expr expr) {

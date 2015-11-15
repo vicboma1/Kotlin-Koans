@@ -1,6 +1,6 @@
-package i_introduction._6_Data_Classes;
+package java.i_introduction._6_Data_Classes;
 
-import util.JavaCode;
+import java.util.JavaCode;
 
 public class JavaCode7 extends JavaCode {
 

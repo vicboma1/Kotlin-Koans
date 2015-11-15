@@ -9,7 +9,7 @@ fun todoTask1(collection: Collection<Int>): Nothing = TODO(
         In IntelliJ, you can just copy-paste the code and agree to automatically convert it to Kotlin,
         but only for this task!
     """,
-    references = { JavaCode1().task1(collection) })
+    references = { i_introduction._1_Java_To_Kotlin_Converter.task1(collection) })
 
 
 fun task1(collection: Collection<Int>): String {

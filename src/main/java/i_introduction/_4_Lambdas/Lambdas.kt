@@ -11,7 +11,7 @@ fun todoTask3(collection: Collection<Int>): Nothing = TODO(
         (Don't use the class 'Iterables').
     """,
     documentation = doc3(),
-    references = { JavaCode3().task3(collection) })
+    references = { i_introduction._4_Lambdas.task3(collection) })
 
 fun task3(collection: Collection<Int>): Boolean {
     return collection.any { it % 42 == 0 }

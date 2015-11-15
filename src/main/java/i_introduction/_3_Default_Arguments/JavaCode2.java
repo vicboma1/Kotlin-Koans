@@ -1,6 +1,6 @@
-package i_introduction._3_Default_Arguments;
+package java.i_introduction._3_Default_Arguments;
 
-import util.JavaCode;
+import java.util.JavaCode;
 
 public class JavaCode2 extends JavaCode {
     private int defaultNumber = 42;
