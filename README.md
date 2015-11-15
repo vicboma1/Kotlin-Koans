@@ -55,6 +55,14 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Delegates examples](https://github.com/vicboma1/Kotlin-Koans#delgates-examples)
 * [Delegates how it works](https://github.com/vicboma1/Kotlin-Koans#delegates-how-it-works)
 
+###Builders [41/42] Koans
+* [Extension function literals](https://github.com/vicboma1/Kotlin-Koans#extension-function-literals)
+* [String and map builders](https://github.com/vicboma1/Kotlin-Koans#string-and-map-builders)
+* [The function with](https://github.com/vicboma1/Kotlin-Koans#the-function-with)
+* [Html builders](https://github.com/vicboma1/Kotlin-Koans#html-builders)
+* [Builders how it works](https://github.com/vicboma1/Kotlin-Koans#builders-how-it-works)
+
+
 # Introduction
 
 ## Hello World!
@@ -808,6 +816,8 @@ class Invokable {
 fun invokeTwice(invokable: Invokable) = invokable()()
 ```
 
+#Properties
+
 ## Properties
 ```
 Read about properties in Kotlin.
@@ -905,4 +915,46 @@ class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
         timeInMillis = value.toMillis()
     }
 }
+```
+
+#Builders
+
+## Extension function literals
+```
+```
+
+Solution
+```kotlin
+```
+
+## String and map builders
+```
+```
+
+Solution
+```kotlin
+```
+
+## The function with
+```
+```
+
+Solution
+```kotlin
+```
+
+## Html builders
+```
+```
+
+Solution
+```kotlin
+```
+
+## Builders how it works
+```
+```
+
+Solution
+```kotlin
 ```
