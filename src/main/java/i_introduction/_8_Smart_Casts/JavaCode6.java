@@ -1,8 +1,4 @@
-package java.i_introduction._8_Smart_Casts;
-
-import i_introduction._8_Smart_Casts.Expr;
-import i_introduction._8_Smart_Casts.Num;
-import i_introduction._8_Smart_Casts.Sum;
+package i_introduction._8_Smart_Casts;
 
 import java.util.JavaCode;
 

@@ -1,4 +1,4 @@
-package java.i_introduction._4_Lambdas;
+package i_introduction._4_Lambdas;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;

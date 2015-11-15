@@ -12,7 +12,7 @@ fun todoTask3(): Nothing = TODO(
         Uncomment the commented code and make it compile.
     """,
     documentation = doc2(),
-    references = { name: String -> i_introduction._3_Default_Arguments.foo(name); foo(name) })
+    references = { /*name: String -> i_introduction._3_Default_Arguments.JavaCode2().foo(name); foo(name) */})
 
 fun foo(name: String = "a42b1C42D2"): String { return name}
 

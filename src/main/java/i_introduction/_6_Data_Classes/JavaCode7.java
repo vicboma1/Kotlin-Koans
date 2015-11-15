@@ -1,4 +1,4 @@
-package java.i_introduction._6_Data_Classes;
+package i_introduction._6_Data_Classes;
 
 import java.util.JavaCode;
 

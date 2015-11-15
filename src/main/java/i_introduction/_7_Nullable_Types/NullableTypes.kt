@@ -10,7 +10,7 @@ fun todoTask5(client: Client?, message: String?, mailer: Mailer): Nothing = TODO
         Declarations of Client, PersonalInfo and Mailer are given below.
     """,
     documentation = doc5(),
-    references = { i_introduction._7_Nullable_Types.sendMessageToClient(client, message, mailer) }
+    references = { /*i_introduction._7_Nullable_Types.JavaCode5().sendMessageToClient(client, message, mailer)*/ }
 )
 
 fun sendMessageToClient(client: Client?, message: String?, mailer: Mailer) {

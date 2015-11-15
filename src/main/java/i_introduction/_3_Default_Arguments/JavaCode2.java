@@ -1,4 +1,4 @@
-package java.i_introduction._3_Default_Arguments;
+package i_introduction._3_Default_Arguments;
 
 import java.util.JavaCode;
 

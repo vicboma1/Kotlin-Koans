@@ -11,7 +11,7 @@ fun todoTask7(): Nothing = TODO(
         The `task7` function should return a list of persons.
     """,
     documentation = doc7(),
-    references = { i_introduction._6_Data_Classes.Person("Alice", 29) }
+    references = { /*i_introduction._6_Data_Classes.JavaCode7().Person("Alice", 29)*/ }
 )
 
 data class Person(
