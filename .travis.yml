@@ -8,7 +8,6 @@ cache:
   directories:
        - $HOME/.m2
 
-# use operating systems.
 os:
   - linux
 
