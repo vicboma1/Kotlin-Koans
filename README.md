@@ -689,36 +689,116 @@ fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
 
 ## For loop
 ```
+Kotlin for loop iterates through anything that provides an iterator. 
+Make the class DateRange implement Iterable<MyDate>, so that it could be iterated over. 
+You can use the function MyDate.nextDay() defined in DateUtil.kt
+
 ```
 
 Solution
 ```kotlin
+import java.util.NoSuchElementException;
+
+class DateRange(val start: MyDate, val end: MyDate) : Iterable<MyDate>{
+    override fun iterator(): Iterator<MyDate>  = object : Iterator<MyDate> {
+        var current: MyDate = start
+
+        override fun next(): MyDate {
+            if (!hasNext()) {
+                throw NoSuchElementException()
+            }
+
+            val result = current
+            current = current.nextDay()
+            return result
+        }
+
+        override fun hasNext(): Boolean {
+            return current.dayOfMonth <= end.dayOfMonth
+        }
+
+    }
+}
+
+fun iterateOverDateRange(firstDate: MyDate, secondDate: MyDate, handler: (MyDate) -> Unit) {
+    for (date in DateRange(firstDate,secondDate)) {
+        handler(date)
+    }
+}
 
 ```
 
 ## Operators overloading
 ```
+Implement a kind of date arithmetic. Support adding years, weeks and days to a date. You could be able to write the code like this: date + YEAR * 2 + WEEK * 3 + DAY * 15.
+
+At first, add an extension function 'plus()' to MyDate, taking a TimeInterval as an argument. Use an utility function MyDate.addTimeIntervals() declared in DateUtil.kt
+
+Then, try to support adding several time intervals to a date. You may need an extra class.
 ```
 
 Solution
 ```kotlin
+
+import TimeInterval.*
+
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) 
+
+enum class TimeInterval { DAY, WEEK, YEAR }
+
+operator fun MyDate.plus(timeInterval: TimeInterval): MyDate = addTimeIntervals(timeInterval, 1)
+
+fun task1(today: MyDate): MyDate = addTimeIntervals(today,1,1)
+
+fun task2(today: MyDate): MyDate  = addTimeIntervals(today,2,3,5)
+
+fun addTimeIntervals(myDate: MyDate, year:Int = 0, week: Int = 0, day:Int = 0) : MyDate {
+    return myDate
+            .addTimeIntervals(TimeInterval.YEAR,year)
+            .addTimeIntervals(TimeInterval.WEEK,week)
+            .addTimeIntervals(TimeInterval.DAY,day)
+}
 
 ```
 
 ## Multi assignment
 ```
+Read about multi-declarations and make the following code compile by adding one word.
 ```
 
 Solution
 ```kotlin
+data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int)
+
+fun isLeapDay(date: MyDate): Boolean {
+    val (year, month, dayOfMonth) = date
+    return year % 4 == 0 && month == 2 && dayOfMonth == 29
+}
 
 ```
 
 ## Invoke
 ```
+Objects with invoke() method can be invoked as a function.
+
+You can add invoke extension for any class, but it's better not to overuse it:
+
+fun Int.invoke() { println(this) }
+
+1() //huh?..
+Implement the function Invokable.invoke() so it would count a number of invocations.
 ```
 
 Solution
 ```kotlin
+class Invokable {
+    public var numberOfInvocations: Int = 0
+        private set
+    operator public fun invoke(): Invokable {
+        numberOfInvocations++
+            return this
+    }
+}
 
+fun invokeTwice(invokable: Invokable) = invokable()()
 ```
