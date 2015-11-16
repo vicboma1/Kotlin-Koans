@@ -1,4 +1,4 @@
-# Kotlin Koans  / WIP
+# Kotlin Koans
 
 ##Build
 ![Build](https://travis-ci.org/vicboma1/Kotlin-Koans.svg?branch=master) 
