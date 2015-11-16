@@ -5,7 +5,7 @@
 [![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
 /kotlin-koans/readme)](https://github.com/igrigorik/ga-beacon)
 
-The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb" (WIP).
+The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb".
 
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
@@ -63,8 +63,10 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Builders how it works](https://github.com/vicboma1/Kotlin-Koans#builders-how-it-works)
 
 ### Generic [42/42] Koans
-* [Generic functions](https://github.com/vicboma1/Kotlin-Koans#generic-functions)
+* [Generic functions](https://github.com/vicboma1/Kotlin-Koans#generic-functions)  <--- Nivel 5
 
+
+![Congratulations!](http://i.imgur.com/Xk06fJj.png)
 
 # Introduction
 
@@ -730,7 +732,7 @@ class DateRange(val start: MyDate, val end: MyDate) : Iterable<MyDate>{
         }
 
         override fun hasNext(): Boolean {
-            return current.dayOfMonth <= end.dayOfMonth
+            return current <= end
         }
 
     }
@@ -922,44 +924,223 @@ class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
 
 #Builders
 
-## Extension function literals
+## Builders how it works
 ```
+Look at the questions below and give your answers
+1. In the Kotlin code
+tr {
+    td {
+        text("Product")
+    }
+    td {
+        text("Popularity")
+    }
+}
+
+'td' is:
+a. special built-in syntactic construct
+b. function declaration
+c. function invocation
+
+2. In the Kotlin code
+tr (color = "yellow") {
+    td {
+        text("Product")
+    }
+    td {
+        text("Popularity")
+    }
+}
+
+'color' is:
+a. new variable declaration
+b. argument name
+c. argument value
+
+3. The block
+{
+    text("Product")
+}
+
+from the previous question is:
+a. block inside built-in syntax construction td
+b. function literal (or "lambda")
+c. something mysterious
+
+4. For the code
+
+tr (color = "yellow") {
+    this.td {
+        text("Product")
+    }
+    td {
+        text("Popularity")
+    }
+}
+
+which of the following is true:
+a. this code doesn't compile
+b. this refers to an instance of an outer class
+c. this refers to a receiver parameter TR of the function literal:
+
+tr (color = "yellow") { TR.(): Unit ->
+      this.td {
+          text("Product")
+      }
+}
 ```
 
 Solution
 ```kotlin
+import Answer.*
+
+enum class Answer { a, b, c }
+
+val answers = mapOf<Int, Answer?>(
+        1 to Answer.c, 2 to Answer.b, 3 to Answer.b, 4 to Answer.c
+)
 ```
 
 ## String and map builders
 ```
+Extension function literals are very useful for creating builders, e.g.:
+
+fun buildString(build: StringBuilder.() -> Unit): String {
+    val stringBuilder = StringBuilder()
+    stringBuilder.build()
+    return stringBuilder.toString()
+}
+
+val s = buildString {
+    this.append("Numbers: ")
+    for (i in 1..3) {
+        // 'this' can be omitted
+        append(i)
+    }
+}
+
+s == "Numbers: 123"
+Add and implement the function 'buildMap' with one parameter (of type extension function)
+creating a new HashMap, building it and returning it as a result. 
+The usage of this function is shown below.
 ```
 
 Solution
 ```kotlin
+import java.util.HashMap
+
+fun <H,T> buildMap(build: MutableMap<H,T>.() -> Unit) : Map<H,T> {
+	var map =  HashMap<H,T>() / HashTable<H,T>()
+    map.build()
+    return map
+}
+
+fun usage(): Map<Int, String> {
+    return buildMap {
+        put(0, "0")
+        for (i in 1..10) {
+            put(i, "$i")
+        }
+    }
+}
 ```
 
 ## The function with
 ```
+The function with
+
+The previous examples can be rewritten using the library function "with"
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html#receiver
+Write your own implementation of this function named 'myWith'.
 ```
 
 Solution
 ```kotlin
+fun <T, R> myWith(receiver: T, f: T.() -> R): R {
+    return receiver.f()
+}
+
+fun buildString(): String {
+    val stringBuilder = StringBuilder()
+    myWith (stringBuilder) {
+        append("Numbers: ")
+        for (i in 1..10) {
+            append(i)
+        }
+    }
+    return stringBuilder.toString()
+}
+
+fun buildMap(): Map<Int, String> {
+    val map = hashMapOf<Int, String>()
+    myWith (map) {
+        put(0, "0")
+        for (i in 1..10) {
+            put(i, "$i")
+        }
+    }
+    return map
+}
+
+
 ```
 
 ## Html builders
 ```
+1. Fill the table with the proper values from the product list. 
+The products are declared in data.kt.
+
+2. Color the table like a chess board (using getTitleColor() and getCellColor()
+functions above). Pass a color as an argument to the functions tr, td.
+
+You can run 'JavaScript(Canvas)' configuration to see the rendered table.
 ```
 
 Solution
 ```kotlin
+fun renderProductTable(): String {
+    fun getTitleColor() = "#b9c9fe"
+    fun getCellColor(index: Int, row: Int) = if ((index + row) %2 == 0) "#dce4ff" else "#eff2ff"
+    fun renderProductTable(): String {
+    return html {
+        table {
+            tr (color = getTitleColor(), init = {
+                td { this.text("Product") }
+                td { this.text("Price") }
+                td { this.text("Popularity")  }
+            })
+            val products = getProducts()
+            products.forEachIndexed { i, product ->
+                tr{
+                    td{ this.text(product.description) }
+                    td{ this.text(product.price) }
+                    td{ this.text(product.popularity) }
+                }
+            }
+        }
+    }.toString()
+}
+
+
+
 ```
 
-## Builders how it works
+## Extension function literals
 ```
+Read about https://kotlinlang.org/docs/reference/lambdas.html#extension-function-expressions
+
+You can declare isEven and isOdd as values, that can be called as extension functions. 
+Complete the declarations below.
 ```
 
 Solution
 ```kotlin
+fun task(): List<Boolean> {
+    val isEven: Int.() -> Boolean = { this % 2 == 0 }
+    val isOdd: Int.() -> Boolean = { this % 2 != 0 }
+
+    return listOf(42.isOdd(), 239.isOdd(), 294823098.isEven())
+}
 ```
 
 # Generic
@@ -975,7 +1156,6 @@ Solution
 ```kotlin
 import java.util.*
 
-    
 fun <T,H: MutableCollection<T>> Collection<T>.partitionTo(listHead : H, listBody: H, predicate : (T) -> Boolean ) : Pair<H,H> {
     this.forEach{      
         val isPredicate = predicate.invoke(it)
