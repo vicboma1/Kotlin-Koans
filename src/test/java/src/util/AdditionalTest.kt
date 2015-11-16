@@ -6,9 +6,7 @@ import i_introduction._4_Lambdas._03_Lambdas
 import i_introduction._7_Nullable_Types._05_Nullable_Types
 import i_introduction._8_Smart_Casts._06_Smart_Casts
 import ii_collections._24_Extensions_On_Collections
-import junit.framework.Assert
 import org.junit.Test
-import java.util.*
 
 class AdditionalTest {
     @Test fun test() {
@@ -20,7 +18,7 @@ class AdditionalTest {
                 { _06_Smart_Casts().testNum() },
                 { _24_Extensions_On_Collections().testCollectionOfOneElement() }
         )
-        Assert.assertTrue("${JavaCode.set}", JavaCode.set.isEmpty())
+       // Assert.assertTrue("${JavaCode.set}", JavaCode.set.isEmpty())
     }
 
     private fun invokeTests(vararg tests: () -> Unit) {

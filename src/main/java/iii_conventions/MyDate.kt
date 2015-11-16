@@ -41,10 +41,8 @@ class DateRange(override val start: MyDate, override val end: MyDate) : Iterable
         }
 
         override fun hasNext(): Boolean {
-            return current.dayOfMonth <= end.dayOfMonth
+            return current <= end
         }
 
     }
-
 }
-
