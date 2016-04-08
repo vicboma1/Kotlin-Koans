@@ -6,7 +6,7 @@
 [![Analytics](https://ga-beacon.appspot.com/UA-68658653-8
 /kotlin-koans/readme)](https://github.com/igrigorik/ga-beacon)
 
---->>>  ![Repo: Getting Started Kotlin](https://github.com/vicboma1/GettingStartedKotlin)   <<<---
+--->>>  [Repo: Getting Started Kotlin](https://github.com/vicboma1/GettingStartedKotlin)   <<<---
 
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb".
 
