@@ -10,6 +10,8 @@
 
 --->>>   [Repo: Problems Kotlin](https://github.com/vicboma1/Kotlin-Examples-Problems/blob/master/README.md)   <<<---
 
+--->>>   [Repo: GameBoy Emulator Enviroment](https://github.com/vicboma1/GameBoyEmulatorEnvironment)   <<<---
+
 
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb".
 
