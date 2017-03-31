@@ -17,7 +17,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 
 ##Indexes for exercises online
 
-###Introduction [13/42] Koans
+### Introduction [13/42] Koans
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
 * [Java to Kotlin conversion](https://github.com/vicboma1/Kotlin-Koans#java-to-kotlin-conversion)
 * [Named arguments](https://github.com/vicboma1/Kotlin-Koans#named-arguments)
@@ -32,7 +32,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [SAM conversions](https://github.com/vicboma1/Kotlin-Koans#sam-conversions)
 * [Extensions on collections](https://github.com/vicboma1/Kotlin-Koans#extensions-on-collections)
 
-###Collections [25/42] Koans
+### Collections [25/42] Koans
 * [Introduction](https://github.com/vicboma1/Kotlin-Koans#introduction)
 * [Filter map](https://github.com/vicboma1/Kotlin-Koans#filter-map)
 * [All, Any, Count, FirstOrNull](https://github.com/vicboma1/Kotlin-Koans#all,any,count,firstornull)  <--- Nivel 2
@@ -55,13 +55,13 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Multi assignment](https://github.com/vicboma1/Kotlin-Koans#multi-assignment)
 * [Invoke](https://github.com/vicboma1/Kotlin-Koans#invoke) <--- Nivel 4
 
-###Properties [36/42] Koans
+### Properties [36/42] Koans
 * [Properties](https://github.com/vicboma1/Kotlin-Koans#properties)
 * [Lazy property](https://github.com/vicboma1/Kotlin-Koans#lazy-property)
 * [Delegates examples](https://github.com/vicboma1/Kotlin-Koans#delgates-examples)
 * [Delegates how it works](https://github.com/vicboma1/Kotlin-Koans#delegates-how-it-works)
 
-###Builders [41/42] Koans
+### Builders [41/42] Koans
 * [Extension function literals](https://github.com/vicboma1/Kotlin-Koans#extension-function-literals)
 * [String and map builders](https://github.com/vicboma1/Kotlin-Koans#string-and-map-builders)
 * [The function with](https://github.com/vicboma1/Kotlin-Koans#the-function-with)
