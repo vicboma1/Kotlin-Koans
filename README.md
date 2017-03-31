@@ -15,7 +15,7 @@ The "src" folder contains the resolved exercises of "https://github.com/jetbrain
 
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
 
-##Indexes for exercises online
+## Indexes for exercises online
 
 ### Introduction [13/42] Koans
 * [Hello World!](https://github.com/vicboma1/Kotlin-Koans#hello-world)
