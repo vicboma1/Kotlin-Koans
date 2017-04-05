@@ -46,7 +46,7 @@ These are the simple solutions of the kotlin koans ON LINE. If you want to add y
 * [Compound tasks](https://github.com/vicboma1/Kotlin-Koans#compoundtasks) <--- Nivel 3
 * [Get used to new style](https://github.com/vicboma1/Kotlin-Koans#getusedtonewstyle)
 
-###Conventions [32/42] Koans
+### Conventions [32/42] Koans
 * [Comparison](https://github.com/vicboma1/Kotlin-Koans#comparison)
 * [In range](https://github.com/vicboma1/Kotlin-Koans#in-range)
 * [Range to](https://github.com/vicboma1/Kotlin-Koans#range-to)
