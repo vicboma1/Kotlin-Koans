@@ -10,6 +10,7 @@
 
 --->>>   [Repo: GameBoy Emulator Enviroment](https://github.com/vicboma1/GameBoyEmulatorEnvironment)   <<<---
 
+--->>>   [Android Project]()  <<<---
 
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb".
 
