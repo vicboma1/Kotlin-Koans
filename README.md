@@ -10,8 +10,6 @@
 
 --->>>   [Repo: GameBoy Emulator Enviroment](https://github.com/vicboma1/GameBoyEmulatorEnvironment)   <<<---
 
---->>>   [Android Project]()  <<<---
-
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb".
 
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR.
