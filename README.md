@@ -14,6 +14,9 @@
 
 --->>> [Repo: Kotlin JavaScript](https://github.com/vicboma1/kotlinJavaScript)  <<<---
 
+--->>> [Repo: Kotlin Native - iOS ](https://github.com/vicboma1/Kotlin-Native-iOS)  <<<---
+
+
 The "src" folder contains the resolved exercises of "https://github.com/jetbrains/workshop-jb"
 
 These are the simple solutions of the kotlin koans ON LINE. If you want to add your answer, you can make a PR
