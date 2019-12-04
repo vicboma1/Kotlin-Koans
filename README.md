@@ -1,7 +1,7 @@
 # Kotlin Koans
 
 ## Build
-[![Build Status](https://travis-ci.org/vicboma1/Kotlin-Koans.svg?branch=master)](https://travis-ci.org/vicboma1/Kotlin-Koans) 
+[![Build Status](https://img.shields.io/badge/build-success-green.svg?plastic)](https://travis-ci.org/vicboma1/Kotlin-Koans) 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.0.0--beta--1038-blue.svg?plastic)](http://kotlinlang.org) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eluder.coveralls/coveralls-maven-plugin/) [![Junit](https://img.shields.io/badge/Junit-4.10-orange.svg?plastic)](http://junit.org) [![Guava](https://img.shields.io/badge/Guava-16.0.1-orange.svg?plastic)](https://code.google.com/p/guava-libraries/)
 
 --->>>  [Repo: Getting Started Kotlin](https://github.com/vicboma1/GettingStartedKotlin)   <<<---
