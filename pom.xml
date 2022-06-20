@@ -11,7 +11,7 @@
         <properties>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             <java.version>1.8</java.version>
-            <kotlin.version>1.0.0-beta-1038</kotlin.version>
+            <kotlin.version>1.6.0-M1</kotlin.version>
             <maven.cobertura.version>2.7</maven.cobertura.version>
             <maven.version>4.0.0</maven.version>
             <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
